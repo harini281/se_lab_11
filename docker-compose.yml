@@ -1,0 +1,15 @@
+services:
+  db:
+    image: postgres:16
+    container_name: campuseats-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: campuseats
+      POSTGRES_USER: campuseats_demo
+      POSTGRES_PASSWORD: local_demo_only_change_me
+    ports:
+      - "5432:5432"
+    volumes:
+      - campuseats_pgdata:/var/lib/postgresql/data
+volumes:
+  campuseats_pgdata:
